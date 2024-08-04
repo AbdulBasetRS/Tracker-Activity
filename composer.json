@@ -1,0 +1,55 @@
+{
+    "name": "abdulbaset/tracker-activity",
+    "description": "A comprehensive tracker activity  for Laravel projects.",
+    "type": "library",
+    "license": "MIT",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Abdulbaset R. Sayed",
+            "email": "AbdulbasetRedaSayedHF@Gmail.com"
+        }
+    ],
+    "homepage": "https://digitalatum.com",
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0|^9.0|^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Abdulbaset\\TrackerActivity\\": "src/"
+        },
+        "files": [
+            "src/Helpers/TrackerActivityHelper.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Abdulbaset\\TrackerActivity\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Abdulbaset\\TrackerActivity\\Providers\\TrackerActivityServiceProvider"
+            ],
+            "aliases": {
+                "TrackerActivity": "Abdulbaset\\TrackerActivity\\Facades\\TrackerActivityFacade"
+            }
+        }
+    },
+    "keywords": [
+        "php",
+        "laravel",
+        "package",
+        "activities",
+        "activity",
+        "tracker",
+        "activity tracker",
+        "logging",
+        "events",
+        "tracking",
+        "audit trail"
+    ],
+    "minimum-stability": "dev"
+}
