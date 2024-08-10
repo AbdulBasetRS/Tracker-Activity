@@ -56,6 +56,20 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | User Model
+    |--------------------------------------------------------------------------
+    |
+    | This configuration option defines the class name of the user model
+    | used in the application. It is used to determine if the current model
+    | being handled is the authenticated user. If you need to change the
+    | user model, you can update this value, and it will be reflected
+    | throughout the application wherever this setting is used.
+    |
+    */
+    'user_model' => \App\Models\User::class,
+
+    /*
+    |--------------------------------------------------------------------------
     | Log Data Only Changes
     |--------------------------------------------------------------------------
     |
@@ -310,17 +324,6 @@ return [
             |
             */
             'attempting' => true,
-
-            /*
-            |--------------------------------------------------------------------------
-            | Log Authenticated Event
-            |--------------------------------------------------------------------------
-            |
-            | This option determines whether the authenticated event should be logged.
-            | If set to true, user authentication events will be logged.
-            |
-            */
-            'authenticated' => true,
         ],
 
         /*
@@ -396,206 +399,7 @@ return [
             */
             'force_deleted' => true,
         ],
-
-        /*
-        |--------------------------------------------------------------------------
-        | Log Database Events
-        |--------------------------------------------------------------------------
-        |
-        | This section determines whether various database-related events should be logged.
-        | If set to true, the specific database events will be logged. If set to false,
-        | those events will not be logged.
-        |
-        | Each type of database event can be individually enabled or disabled.
-        |
-        */
-        'db_events' => [
-            /*
-            |--------------------------------------------------------------------------
-            | Log Query Executed
-            |--------------------------------------------------------------------------
-            |
-            | This option determines whether the query executed event should be logged.
-            | If set to true, queries executed against the database will be logged.
-            |
-            */
-            'query_executed' => true,
-
-            /*
-            |--------------------------------------------------------------------------
-            | Log Migrations Started
-            |--------------------------------------------------------------------------
-            |
-            | This option determines whether the migrations started event should be logged.
-            | If set to true, the start of database migrations will be logged.
-            |
-            */
-            'migrations_started' => true,
-
-            /*
-            |--------------------------------------------------------------------------
-            | Log Migrations Ended
-            |--------------------------------------------------------------------------
-            |
-            | This option determines whether the migrations ended event should be logged.
-            | If set to true, the end of database migrations will be logged.
-            |
-            */
-            'migrations_ended' => true,
-
-            /*
-            |--------------------------------------------------------------------------
-            | Log Migration Started
-            |--------------------------------------------------------------------------
-            |
-            | This option determines whether individual migrations started events should be logged.
-            | If set to true, the start of individual database migrations will be logged.
-            |
-            */
-            'migration_started' => true,
-
-            /*
-            |--------------------------------------------------------------------------
-            | Log Migration Ended
-            |--------------------------------------------------------------------------
-            |
-            | This option determines whether individual migrations ended events should be logged.
-            | If set to true, the end of individual database migrations will be logged.
-            |
-            */
-            'migration_ended' => true,
-
-            /*
-            |--------------------------------------------------------------------------
-            | Log Schema Loaded
-            |--------------------------------------------------------------------------
-            |
-            | This option determines whether the schema loaded event should be logged.
-            | If set to true, the loading of the database schema will be logged.
-            |
-            */
-            'schema_loaded' => true,
-        ],
-
-        /*
-        |--------------------------------------------------------------------------
-        | Log Session Events
-        |--------------------------------------------------------------------------
-        |
-        | This option determines whether session events should be logged.
-        | If set to true, session events will be logged. If set to false,
-        | session events will not be logged.
-        |
-        | Each type of session event can be individually enabled or disabled.
-        |
-        */
-        'session_events' => [
-            /*
-            |--------------------------------------------------------------------------
-            | Log Session Started
-            |--------------------------------------------------------------------------
-            |
-            | This option determines whether session start events should be logged.
-            | If set to true, details of started sessions will be logged.
-            |
-            */
-            'session_started' => true,
-
-            /*
-            |--------------------------------------------------------------------------
-            | Log Session Ending
-            |--------------------------------------------------------------------------
-            |
-            | This option determines whether session ending events should be logged.
-            | If set to true, details of sessions ending will be logged.
-            |
-            */
-            'session_ending' => true,
-        ],
-
-        /*
-        |--------------------------------------------------------------------------
-        | Log File Events
-        |--------------------------------------------------------------------------
-        |
-        | This option determines whether file events should be logged.
-        | If set to true, file events will be logged. If set to false,
-        | file events will not be logged.
-        |
-        | Each type of file event can be individually enabled or disabled.
-        |
-        */
-        'file_events' => [
-            /*
-            |--------------------------------------------------------------------------
-            | Log File Created
-            |--------------------------------------------------------------------------
-            |
-            | This option determines whether file creation events should be logged.
-            | If set to true, details of created files will be logged.
-            |
-            */
-            'file_created' => true,
-
-            /*
-            |--------------------------------------------------------------------------
-            | Log File Deleted
-            |--------------------------------------------------------------------------
-            |
-            | This option determines whether file deletion events should be logged.
-            | If set to true, details of deleted files will be logged.
-            |
-            */
-            'file_deleted' => true,
-
-            /*
-            |--------------------------------------------------------------------------
-            | Log File Updated
-            |--------------------------------------------------------------------------
-            |
-            | This option determines whether file update events should be logged.
-            | If set to true, details of updated files will be logged.
-            |
-            */
-            'file_updated' => true,
-        ],
-
-        /*
-        |--------------------------------------------------------------------------
-        | Log Request Events
-        |--------------------------------------------------------------------------
-        |
-        | This option determines whether request events should be logged.
-        | If set to true, request events will be logged. If set to false,
-        | request events will not be logged.
-        |
-        | Each type of request event can be individually enabled or disabled.
-        |
-        */
-        'request_events' => [
-            /*
-            |--------------------------------------------------------------------------
-            | Log Request Handled
-            |--------------------------------------------------------------------------
-            |
-            | This option determines whether requests that are successfully handled should be logged.
-            | If set to true, details of handled requests will be logged.
-            |
-            */
-            'request_handled' => true,
-
-            /*
-            |--------------------------------------------------------------------------
-            | Log Request Failed
-            |--------------------------------------------------------------------------
-            |
-            | This option determines whether failed requests should be logged.
-            | If set to true, details of failed requests will be logged.
-            |
-            */
-            'request_failed' => true,
-        ],
-        
+ 
         /*
         |--------------------------------------------------------------------------
         | Log Route Events
@@ -621,17 +425,6 @@ return [
             |
             */
             'route_matched' => true,
-
-            /*
-            |--------------------------------------------------------------------------
-            | Log Route Not Found
-            |--------------------------------------------------------------------------
-            |
-            | This option determines whether route not found events should be logged.
-            | If set to true, attempts to access non-existent routes will be logged.
-            |
-            */
-            'route_not_found' => true,
         ],
     ],
 

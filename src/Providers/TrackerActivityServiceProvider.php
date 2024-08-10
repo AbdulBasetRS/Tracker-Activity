@@ -5,7 +5,7 @@ namespace Abdulbaset\TrackerActivity\Providers;
 use Illuminate\Support\ServiceProvider;
 use Abdulbaset\TrackerActivity\TrackerActivity;
 use Abdulbaset\TrackerActivity\Exceptions\ActivityTrackerExceptionHandler;
-
+use Illuminate\Contracts\Debug\ExceptionHandler;
 
 class TrackerActivityServiceProvider extends ServiceProvider
 {
@@ -18,7 +18,7 @@ class TrackerActivityServiceProvider extends ServiceProvider
 
         // Publish config file
         $this->publishes([
-            __DIR__.'/../Config/activity-tracker.php' => config_path('activity-tracker.php'),
+            __DIR__.'/../Config/tracker-activity.php' => config_path('tracker-activity.php'),
         ]);
 
         // Load migrations
@@ -28,18 +28,14 @@ class TrackerActivityServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(AuthEventsServiceProvider::class);
-        $this->app->register(ModelEventsServiceProvider::class);
-        $this->app->register(DatabaseEventsServiceProvider::class);
-        $this->app->register(RequestEventsServiceProvider::class);
-        $this->app->register(FileEventsServiceProvider::class);
-        $this->app->register(SessionEventsServiceProvider::class);
         $this->app->register(RouteEventsServiceProvider::class);
+        $this->app->register(QueryBuilderServiceProvider::class);
 
         $this->mergeConfigFrom(
-            __DIR__.'/../Config/activity-tracker.php', 'activity-tracker'
+            __DIR__.'/../Config/tracker-activity.php', 'tracker-activity'
         );
         
-        $this->app->singleton('activity-tracker', function ($app) {
+        $this->app->singleton('tracker-activity', function ($app) {
             return new TrackerActivity();
         });
     }

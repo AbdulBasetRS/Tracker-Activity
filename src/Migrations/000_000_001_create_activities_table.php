@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create(config('tracker-activity.table_name'), function (Blueprint $table) {
             $table->id();
-            $table->enum('type', ['event', 'exception','route','info'])->default('info');
+            $table->enum('type', ['model', 'auth', 'exception', 'route', 'info'])->default('info');
             $table->string('subject');
             $table->integer('auth_id')->nullable();
             $table->string('class_name')->nullable();

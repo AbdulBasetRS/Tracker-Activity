@@ -9,6 +9,19 @@ use Illuminate\Support\Facades\Config;
 
 class TrackerActivity
 {
+
+    private static $retrieved = false;
+
+    public static function setRetrieved($boolean = true)
+    {
+        self::$retrieved = $boolean;
+    }
+
+    public static function checkRetrieved()
+    {
+        return self::$retrieved;
+    }
+    
     public static function info($subject, $description = null, $properties = null)
     {
         if (!Config::get('tracker-activity.enabled')) {
@@ -19,13 +32,13 @@ class TrackerActivity
         return self::logData($logData);
     }
 
-    public static function visited($subject = 'visited', $class = null, $description = null, $properties = null)
+    public static function visited($class = null, $description = null, $properties = null)
     {
         if (!Config::get('tracker-activity.enabled')) {
             return false;
         }
 
-        $logData = self::prepareLogData($type = 'route', $subject, $class, $description, $properties);
+        $logData = self::prepareLogData($type = 'route', $subject = 'visited', $class, $description, $properties);
         return self::logData($logData);
     }
 
@@ -36,6 +49,28 @@ class TrackerActivity
         }
 
         $logData = self::prepareLogData($type = 'event', $subject, $class, $description, $properties);
+
+        return self::logData($logData);
+    }
+
+    public static function model($subject, $class, $description = null, $properties = null)
+    {
+        if (!Config::get('tracker-activity.enabled')) {
+            return false;
+        }
+
+        $logData = self::prepareLogData($type = 'model', $subject, $class, $description, $properties);
+
+        return self::logData($logData);
+    }
+
+    public static function auth($subject, $class, $description = null, $properties = null)
+    {
+        if (!Config::get('tracker-activity.enabled')) {
+            return false;
+        }
+
+        $logData = self::prepareLogData($type = 'auth', $subject, $class, $description, $properties);
 
         return self::logData($logData);
     }

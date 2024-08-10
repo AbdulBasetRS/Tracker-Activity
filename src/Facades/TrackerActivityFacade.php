@@ -8,6 +8,6 @@ class TrackerActivityFacade extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'activity-tracker';
+        return 'tracker-activity';
     }
 }
